@@ -1,0 +1,33 @@
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap");
+
+:root {
+font-family: "DM Sans", Arial, sans-serif;
+color: #321719;
+background: #fff9ed;
+font-synthesis: none;
+text-rendering: optimizeLegibility;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+* {
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+}
+body {
+margin: 0;
+min-width: 320px;
+}
+button,
+input {
+font: inherit;
+}
+a {
+color: inherit;
+}
+::selection {
+background: #e9c66e;
+color: #4d1518;
+}
