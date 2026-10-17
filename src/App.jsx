@@ -14,7 +14,7 @@ import {
 import "./App.css";
 
 const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwXIvIjIzYMfw6kiDz10HozkmRANosRqyuxasF7Hhipy0tVWqeb8p8vg9OYmc8MwkDqsQ/exec";
+  "https://script.google.com/macros/s/AKfycby34FJ4qOZsEEsqwv5Jtoiw7KF73sYv3fOiXodxNq1Z9-ruS9HoOtpIh7tdqYfMIQPokg/exec";
 
 const featuredJewellery = [
   {
@@ -76,7 +76,7 @@ const prizes = [
   },
 ];
 
-function checkPhoneNumber(phone) {
+function requestRegistrationService(params) {
   return new Promise((resolve, reject) => {
     const callbackName = `checkPhone_${Date.now()}_${Math.floor(
       Math.random() * 100000
@@ -100,27 +100,60 @@ function checkPhoneNumber(phone) {
 
     window[callbackName] = (result) => {
       cleanup();
-      if (!result || typeof result.exists !== "boolean") {
+      if (!result || typeof result !== "object") {
         reject(new Error("Invalid response from registration service."));
         return;
       }
-      resolve(result.exists);
+      resolve(result);
     };
 
     script.onerror = () => {
       cleanup();
-      reject(new Error("Could not check the mobile number."));
+      reject(
+        new Error(
+          "Could not reach the registration service. Please check the web app deployment and try again."
+        )
+      );
     };
 
-    const params = new URLSearchParams({
-      action: "check",
-      phone,
-      callback: callbackName,
-    });
+    params.set("callback", callbackName);
 
     script.src = `${APPS_SCRIPT_URL}?${params.toString()}`;
     document.body.appendChild(script);
   });
+}
+
+function checkPhoneNumber(phone) {
+  return requestRegistrationService(
+    new URLSearchParams({ action: "check", phone })
+  ).then((result) => {
+    if (typeof result.exists !== "boolean") {
+      throw new Error("Invalid response from registration service.");
+    }
+    return result.exists;
+  });
+}
+
+async function waitForRegistration(requestId) {
+  for (let attempt = 0; attempt < 6; attempt += 1) {
+    const result = await requestRegistrationService(
+      new URLSearchParams({ action: "status", requestId })
+    );
+
+    if (result.status === "registered" || result.status === "duplicate") {
+      return result;
+    }
+    if (result.status === "error") {
+      throw new Error(result.message || "Registration could not be completed.");
+    }
+    if (result.status !== "pending" && result.status !== "unknown") {
+      throw new Error("Invalid response from registration service.");
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 800));
+  }
+
+  throw new Error("Registration is taking longer than expected. Please try again.");
 }
 
 export default function App() {
@@ -166,20 +199,36 @@ export default function App() {
         return;
       }
 
-      const formData = new URLSearchParams({ name, phone, city });
+      const requestId = crypto.randomUUID();
+      const formData = new URLSearchParams({
+        action: "register",
+        requestId,
+        name,
+        phone,
+        city,
+      });
       await fetch(APPS_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
         body: formData,
       });
 
-      setStatus(
-        "रजिस्ट्रेशन अनुरोध भेज दिया गया है। कृपया स्टोर से अपनी एंट्री की पुष्टि करें।"
-      );
+      const result = await waitForRegistration(requestId);
+      if (result.status === "duplicate") {
+        setStatus("यह मोबाइल नंबर पहले से रजिस्टर है। कृपया दूसरा नंबर इस्तेमाल करें।");
+        return;
+      }
+
+      setStatus("आपका रजिस्ट्रेशन सफलतापूर्वक हो गया है। धन्यवाद!");
       setForm({ name: "", phone: "", city: "" });
     } catch (error) {
       console.error("Registration error:", error);
-      setStatus("मोबाइल नंबर की जाँच नहीं हो सकी। कृपया दोबारा कोशिश करें।");
+
+      setStatus(
+        error?.message
+          ? `रजिस्ट्रेशन नहीं हो सका: ${error.message}`
+          : "Registration service से संपर्क नहीं हो पाया।"
+      );
     } finally {
       setLoading(false);
     }
