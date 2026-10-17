@@ -8,53 +8,26 @@ import {
   Sparkles,
   CheckCircle2,
   ShoppingBag,
-  Heart,
-  ChevronRight,
 } from "lucide-react";
 import "./App.css";
 
 const APPS_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycby34FJ4qOZsEEsqwv5Jtoiw7KF73sYv3fOiXodxNq1Z9-ruS9HoOtpIh7tdqYfMIQPokg/exec";
 
-const featuredJewellery = [
-  {
-    category: "THE CLASSICS",
-    title: "Diamond Rings",
-    description: "Timeless brilliance, made to be treasured.",
-    image:
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=85",
-    alt: "Luxury diamond ring",
-  },
-  {
-    category: "MADE FOR TWO",
-    title: "Couple Rings",
-    description: "Two hearts. One beautiful promise.",
-    image:
-      "https://images.unsplash.com/photo-1603561596112-0a132b757442?auto=format&fit=crop&w=1000&q=85",
-    alt: "Elegant couple rings",
-  },
-  {
-    category: "THE FINISHING TOUCH",
-    title: "Statement Earrings",
-    description: "A little sparkle for every special moment.",
-    image:
-      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=85",
-    alt: "Statement jewellery earrings",
-  },
-];
+
 
 const prizes = [
   {
-    image: "/images/prizes/scooter.jpg",
+    image: "/images/prizes/s2.jpg",
     alt: "स्कूटर",
     title: "पहला पुरस्कार",
     detail: "स्कूटर जीतने का मौका",
   },
   {
-    image: "/images/prizes/phone.jpg",
-    alt: "स्मार्टफोन",
-    title: "दूसरा एवं पांचवां पुरस्कार",
-    detail: "स्मार्टफोन जीतने का मौका",
+    image: "/images/prizes/f1.jpg",
+    alt: "फ्रिज",
+    title: "दूसरा पुरस्कार",
+    detail: "फ्रिज जीतने का मौका",
   },
   {
     image: "/images/prizes/washing.jpg",
@@ -69,10 +42,16 @@ const prizes = [
     detail: "LED टीवी",
   },
   {
-    image: "/images/prizes/micture.jpg",
+    image: "/images/prizes/home2.png",
     alt: "घरेलू उपकरण",
-    title: "छठा एवं सातवां पुरस्कार",
+    title: "छठा पुरस्कार",
     detail: "घरेलू उपकरणों के उपहार",
+  },
+  {
+    image: "/images/prizes/h1.png",
+    alt: "हेयर ड्रायर",
+    title: "सातवा पुरस्कार",
+    detail: "हेयर ड्रायर",
   },
 ];
 
@@ -259,29 +238,30 @@ export default function App() {
         <div className="hero-portrait" aria-hidden="true" />
         <div className="hero-content">
           <p className="eyebrow">
-            <Sparkles size={15} /> THE ART OF FINE JEWELLERY
+            <Sparkles size={17} /> लकी ड्रॉ 2026–27
           </p>
           <h1>
-            Discover your <em>sparkle.</em>
+           ₹10,000 की सोने की ज्वेलरी खरीदने पर
+
+ <em>पाएं ढेर सारे उपहार!</em>
           </h1>
           <p className="hero-description">
-            Jewellery that celebrates your story. Discover timeless designs,
-            beautiful craftsmanship, and a little extra joy with every special
-            purchase.
+            सोने की ज्वेलरी की खरीदारी पर शानदार उपहार जीतने का सुनहरा मौका।
           </p>
           <div className="hero-actions">
-            <a className="primary-button" href="#register">
-              Enter the Lucky Draw <ArrowRight size={17} />
-            </a>
-            <a className="text-button" href="#collections">
-              Explore the collection <ChevronRight size={17} />
-            </a>
+            <div className="hero-date-card">
+              <span>ऑफर अवधि</span>
+              <p>1 सितंबर 2026 से 31 जनवरी 2027</p>
+            </div>
+            <div className="hero-date-card">
+              <span>लकी ड्रॉ की तारीख</span>
+              <p>7 फरवरी 2027</p>
+            </div>
           </div>
           <div className="campaign-badge">
             <Gift size={17} />
-            <span>Shop gold jewellery worth ₹10,000 and enjoy a chance to win gifts</span>
+            <span>₹10,000 की सोने की ज्वेलरी खरीद पर उपहार जीतने का अवसर।</span>
           </div>
-          <p className="hero-note">Offer valid 1 September 2026 – 31 January 2027</p>
         </div>
         <div className="hero-caption">
           <span>KIARA KOTHARI</span>
@@ -290,43 +270,6 @@ export default function App() {
       </header>
 
       <main>
-        <section className="collections-section" id="collections">
-          <div className="section-topline">
-            <p className="eyebrow dark">CURATED FOR YOUR MOMENTS</p>
-            <span className="section-index">01 / COLLECTIONS</span>
-          </div>
-          <div className="collections-heading">
-            <h2>
-              Find the piece that <em>feels like you.</em>
-            </h2>
-            <p>
-              From everyday elegance to once-in-a-lifetime celebrations, find
-              jewellery made to become part of your story.
-            </p>
-          </div>
-
-          <div className="featured-grid">
-            {featuredJewellery.map((item, index) => (
-              <article className="featured-card" key={item.title} style={{ "--card-index": index }}>
-                <a className="featured-image-link" href="#register" aria-label={`Explore ${item.title}`}>
-                  <img src={item.image} alt={item.alt} loading="lazy" />
-                  <span className="image-number">0{index + 1}</span>
-                  <span className="round-arrow"><ArrowRight size={18} /></span>
-                </a>
-                <div className="featured-copy">
-                  <p className="card-category">{item.category}</p>
-                  <div className="featured-title-row">
-                    <div>
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
-                    </div>
-                    <Heart className="heart-icon" size={19} strokeWidth={1.4} />
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
 
         {/* <section className="editorial-section">
           <div className="editorial-image">
@@ -360,21 +303,7 @@ export default function App() {
               <em>आपकी खरीदारी के साथ खुशियों का मौका भी!</em>
             </h2>
 
-            <div className="offer-highlight">
-              <p>₹10,000 की सोने की ज्वेलरी खरीदने पर</p>
-              <h3>पाएं ढेर सारे उपहार!</h3>
-            </div>
-
-            <div className="offer-dates">
-              <div className="offer-date-item">
-                <span>ऑफर अवधि</span>
-                <strong>1 सितंबर 2026 से 31 जनवरी 2027</strong>
-              </div>
-              <div className="offer-date-item">
-                <span>लकी ड्रॉ की तारीख</span>
-                <strong>7 फरवरी 2027</strong>
-              </div>
-            </div>
+           
           </div>
 
           <div className="prize-grid">
@@ -402,7 +331,7 @@ export default function App() {
           <div className="savings-scheme-backdrop" aria-hidden="true" />
           <div className="savings-scheme-inner">
             <div className="savings-scheme-copy">
-              <p className="eyebrow">KOTHARI JEWELLERS · MONTHLY SAVINGS PLAN</p>
+              <p className="eyebrow">KIARA KOTHARI JEWELLERS · MONTHLY SAVINGS PLAN</p>
               <h2 id="savings-scheme-title">
                 हर महीने बचत करें,<br />
                 <em>अतिरिक्त लाभ पाएं!</em>
@@ -432,31 +361,44 @@ export default function App() {
               <p className="savings-table-note">योजना की पात्रता और लाभ की विस्तृत जानकारी के लिए कृपया स्टोर से संपर्क करें।</p>
             </div>
 
-            <div className="scheme-benefits">
-              <div className="scheme-benefits-heading">
-                <p className="eyebrow">THE KOTHARI DIFFERENCE</p>
-                <h3>कियारा कोठारी ज्वेलर्स क्यों चुनें?</h3>
-              </div>
-              <div className="scheme-benefit-grid">
-                <div className="scheme-benefit"><span className="scheme-benefit-number">01</span><p>22 कैरेट और 18 कैरेट सोने की ज्वेलरी।</p></div>
-                <div className="scheme-benefit"><span className="scheme-benefit-number">02</span><p>शानदार लकी ड्रॉ उपहार जीतने का अवसर।</p></div>
-                <div className="scheme-benefit"><span className="scheme-benefit-number">03</span><p>मासिक बचत योजना के साथ अतिरिक्त लाभ।</p></div>
-                <div className="scheme-benefit"><span className="scheme-benefit-number">04</span><p>आपकी जरूरतों के अनुसार व्यक्तिगत मार्गदर्शन।</p></div>
-              </div>
-            </div>
-
-            <div className="scheme-terms">
-              <h3>नियम एवं शर्तें</h3>
-              <ol>
-                <li>यह ऑफर केवल 22K या 18K सोने की ज्वेलरी की खरीदारी पर लागू है।</li>
-                <li>मेकिंग चार्ज 12% से 15% के बीच निर्धारित रहेगा।</li>
-                <li>लकी ड्रॉ ऑफर की अवधि 1 सितंबर 2026 से 31 जनवरी 2027 तक है।</li>
-                <li>लकी ड्रॉ 7 फरवरी 2027 को आयोजित किया जाएगा।</li>
-                <li>लकी ड्रॉ में भाग लेने की पात्रता, कूपन संबंधी नियम और पुरस्कार वितरण की पूरी जानकारी स्टोर से प्राप्त करें।</li>
-              </ol>
-            </div>
           </div>
         </section>
+
+        <div className="scheme-details-layout">
+          <img
+            className="scheme-details-image"
+            src="/images/prizes/kyu.png"
+            alt="कियारा कोठारी ज्वेलर्स क्यों चुनें: गुणवत्ता, उपहार, बचत और व्यक्तिगत मार्गदर्शन"
+            loading="lazy"
+          />
+          <section className="scheme-details-section" aria-label="योजना के लाभ और नियम">
+            <div className="scheme-details-inner">
+              <div className="scheme-benefits">
+                <div className="scheme-benefits-heading">
+                  <p className="eyebrow">THE KIARA KOTHARI DIFFERENCE</p>
+                  <h3>कियारा कोठारी ज्वेलर्स क्यों चुनें?</h3>
+                </div>
+                <div className="scheme-benefit-grid">
+                  <div className="scheme-benefit"><span className="scheme-benefit-number">01</span><p>22 कैरेट और 18 कैरेट सोने की ज्वेलरी।</p></div>
+                  <div className="scheme-benefit"><span className="scheme-benefit-number">02</span><p>शानदार लकी ड्रॉ उपहार जीतने का अवसर।</p></div>
+                  <div className="scheme-benefit"><span className="scheme-benefit-number">03</span><p>मासिक बचत योजना के साथ अतिरिक्त लाभ।</p></div>
+                  <div className="scheme-benefit"><span className="scheme-benefit-number">04</span><p>आपकी जरूरतों के अनुसार व्यक्तिगत मार्गदर्शन।</p></div>
+                </div>
+              </div>
+
+              <div className="scheme-terms">
+                <h3>नियम एवं शर्तें</h3>
+                <ol>
+                  <li>यह ऑफर केवल 22K या 18K सोने की ज्वेलरी की खरीदारी पर लागू है।</li>
+                  <li>मेकिंग चार्ज 12% से 15% के बीच निर्धारित रहेगा।</li>
+                  <li>लकी ड्रॉ ऑफर की अवधि 1 सितंबर 2026 से 31 जनवरी 2027 तक है।</li>
+                  <li>लकी ड्रॉ 7 फरवरी 2027 को आयोजित किया जाएगा।</li>
+                  <li>लकी ड्रॉ में भाग लेने की पात्रता, कूपन संबंधी नियम और पुरस्कार वितरण की पूरी जानकारी स्टोर से प्राप्त करें।</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+        </div>
 
         <section className="register-section" id="register">
           <div className="register-intro">
@@ -547,8 +489,10 @@ export default function App() {
         </a>
         <p className="footer-kicker">TIMELESS BY DESIGN</p>
         <h2>Kiara Kothari Jewellers</h2>
-        <p><MapPin size={17} /> Plot No. 132, Bhim Chowk, Nara Road, Jaripatka, Nagpur – 14</p>
-        <p><Phone size={17} /><a href="https://wa.me/919270132228">9270132228 · WhatsApp</a></p>
+        <p className="footer-visit">आज ही हमारा स्टोर विजिट करे</p>
+        <p className="footer-address"><MapPin size={17} /><span>प्लॉट नं. 132, भीम चौक, नारा रोड, जरीपटका, नागपुर – 440014</span></p>
+        <p><Phone size={17} /><a href="tel:7066086060">70660 86060</a></p>
+        <p><Phone size={17} /><a href="tel:7066046060">70660 46060</a></p>
         <p><Mail size={17} /><a href="mailto:kiarakotharijewellers@gmail.com">kiarakotharijewellers@gmail.com</a></p>
         <small>© {new Date().getFullYear()} Kiara Kothari Jewellers. All rights reserved.</small>
       </footer>
