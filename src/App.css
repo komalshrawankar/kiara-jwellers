@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   font-family: "DM Sans", sans-serif;
@@ -780,3 +780,1225 @@ body, .site-shell { background: #f5f5f5; color: #171717; }
   }
 }
 
+/* Kothari bridal atelier: ivory, heirloom gold, and deep burgundy. */
+:root {
+  color-scheme: light;
+  --ink: #342322;
+  --muted: #75635d;
+  --gold: #c7a66a;
+  --gold-light: #f0dfb9;
+  --wine: #541b2b;
+  --cream: #fbf7ef;
+  --serif: "Cormorant Garamond", Georgia, serif;
+}
+
+body,
+.site-shell {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.hero {
+  min-height: min(850px, 100svh);
+  background: #261318;
+}
+
+.hero::before {
+  background-image:
+    linear-gradient(90deg, rgba(35, 12, 19, .94) 0%, rgba(49, 17, 27, .78) 39%, rgba(48, 19, 27, .18) 78%, rgba(35, 12, 19, .12) 100%),
+    linear-gradient(0deg, rgba(30, 10, 17, .7), transparent 45%),
+    url("https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=2200&q=88");
+  background-position: center, center, center 39%;
+}
+
+.hero::after {
+  opacity: .5;
+  background:
+    radial-gradient(ellipse at 77% 43%, rgba(224, 183, 110, .25), transparent 43%),
+    linear-gradient(110deg, transparent 48%, rgba(255, 242, 218, .06) 68%, transparent 84%);
+}
+
+.navbar {
+  max-width: 1480px;
+  padding-top: 24px;
+  padding-bottom: 20px;
+  border-color: rgba(240, 223, 185, .3);
+}
+
+.logo img {
+  width: 84px;
+  height: 76px;
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, .22));
+}
+
+.nav-links > a {
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.nav-links .nav-button {
+  border-color: rgba(226, 195, 133, .8);
+  color: #f4dfb1;
+}
+
+.nav-links .nav-button:hover {
+  background: var(--gold-light);
+  color: #35151d;
+}
+
+.hero-content {
+  max-width: 1480px;
+  margin-top: clamp(94px, 14vh, 164px);
+}
+
+.hero-content > .eyebrow {
+  color: #ead4a8;
+}
+
+.hero h1 {
+  max-width: 760px;
+  font-size: clamp(66px, 9.1vw, 126px);
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.hero h1 em {
+  color: #e6c785;
+}
+
+.hero-description {
+  max-width: 465px;
+  color: rgba(255, 248, 236, .83);
+  font-size: 14px;
+}
+
+.primary-button {
+  min-height: 54px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #f0dfb9, #d4b36e);
+  color: #381722;
+  box-shadow: 0 10px 30px rgba(17, 7, 10, .2);
+  letter-spacing: .04em;
+}
+
+.primary-button:hover {
+  background: #f8ebcd;
+  box-shadow: 0 14px 34px rgba(12, 4, 8, .28);
+}
+
+.campaign-badge {
+  border-color: rgba(229, 202, 148, .52);
+  background: rgba(43, 16, 25, .42);
+  color: #f0dfb9;
+}
+
+.hero-caption {
+  color: rgba(248, 231, 200, .74);
+}
+
+.collections-section {
+  max-width: 1480px;
+  padding-top: clamp(76px, 9vw, 124px);
+  padding-bottom: clamp(78px, 9vw, 124px);
+}
+
+.eyebrow.dark,
+.card-category {
+  color: #926c39;
+}
+
+.collections-heading h2,
+.editorial-copy h2,
+.section-heading h2,
+.register-intro h2 {
+  color: #392429;
+  font-size: clamp(44px, 6vw, 76px);
+  letter-spacing: -.025em;
+}
+
+.collections-heading h2 em,
+.editorial-copy h2 em,
+.section-heading h2 em,
+.register-intro h2 em {
+  color: #8a3e4e;
+}
+
+.featured-grid {
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.featured-image-link {
+  box-shadow: 0 18px 46px rgba(58, 34, 29, .1);
+}
+
+.featured-image-link img {
+  filter: saturate(.91);
+}
+
+.featured-card:hover .featured-image-link img {
+  filter: saturate(1.1);
+}
+
+.featured-title-row h3 {
+  color: #462a2c;
+  font-size: 32px;
+}
+
+.featured-title-row p {
+  font-size: 12px;
+}
+
+.heart-icon {
+  color: #b18c54;
+}
+
+.prize-section {
+  padding-top: clamp(72px, 9vw, 120px);
+  padding-bottom: clamp(72px, 9vw, 120px);
+  background-image:
+    linear-gradient(180deg, rgba(251, 247, 239, .9), rgba(250, 244, 234, .88)),
+    url("/images/prizes/1.png");
+}
+
+.section-heading {
+  max-width: 900px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.section-heading .eyebrow {
+  color: #946d3c;
+}
+
+.section-heading h2 {
+  font-size: clamp(38px, 5.2vw, 66px);
+}
+
+.section-heading h2 em {
+  color: #773548;
+}
+
+.offer-highlight {
+  position: relative;
+  max-width: 690px;
+  padding: 25px 30px;
+  border: 1px solid rgba(227, 198, 139, .8);
+  background:
+    radial-gradient(ellipse at 100% 0, rgba(229, 197, 135, .18), transparent 44%),
+    linear-gradient(130deg, #612435, #451925 72%, #39151f);
+  box-shadow: 0 18px 48px rgba(63, 25, 34, .18);
+}
+
+.offer-highlight p {
+  color: rgba(255, 245, 226, .82);
+}
+
+.offer-highlight h3 {
+  color: #efd79f;
+  font-size: 34px;
+}
+
+.offer-date-item {
+  border-color: #eadcc5;
+  background: rgba(255, 253, 247, .92);
+  box-shadow: 0 8px 28px rgba(68, 42, 32, .06);
+}
+
+.offer-date-item span {
+  color: #8a3e4e;
+  letter-spacing: .04em;
+}
+
+.offer-date-item strong {
+  color: #493536;
+}
+
+.prize-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.prize-card {
+  padding: 16px 16px 23px;
+  border: 1px solid rgba(183, 151, 96, .28);
+  background: rgba(255, 252, 245, .91);
+  box-shadow: 0 10px 32px rgba(70, 40, 31, .07);
+  backdrop-filter: blur(8px);
+}
+
+.prize-card:hover {
+  border-color: rgba(183, 151, 96, .62);
+  box-shadow: 0 18px 42px rgba(70, 40, 31, .13);
+}
+
+.prize-image-wrapper {
+  background: linear-gradient(145deg, #f6f0e5, #eee4d2);
+}
+
+.prize-image {
+  filter: none;
+}
+
+.prize-card:hover .prize-image {
+  filter: none;
+}
+
+.prize-number {
+  color: #9a773f;
+}
+
+.prize-card h3 {
+  color: #652d3b;
+  font-size: 24px;
+}
+
+.terms {
+  color: #796860;
+}
+
+.savings-scheme-section {
+  padding-top: clamp(76px, 9vw, 120px);
+  padding-bottom: clamp(76px, 9vw, 120px);
+  background: #351722;
+}
+
+.savings-scheme-backdrop {
+  background-image:
+    linear-gradient(90deg, rgba(48, 20, 29, .95) 0%, rgba(56, 24, 34, .88) 48%, rgba(49, 20, 30, .77) 100%),
+    url("/images/prizes/scheme.jpeg");
+  background-position: center, right center;
+  filter: none;
+}
+
+.savings-scheme-section::after {
+  background:
+    radial-gradient(ellipse at 88% 12%, rgba(225, 193, 128, .17), transparent 34%),
+    linear-gradient(0deg, rgba(28, 10, 17, .3), transparent 45%);
+}
+
+.savings-scheme-copy .eyebrow,
+.scheme-benefits .eyebrow {
+  color: #e2c990;
+}
+
+.savings-scheme-copy h2 {
+  font-size: clamp(48px, 7vw, 82px);
+}
+
+.savings-scheme-copy h2 em {
+  color: #e3c78e;
+}
+
+.savings-scheme-lead {
+  color: rgba(255, 247, 233, .8);
+}
+
+.savings-table-wrap {
+  border-color: rgba(231, 207, 162, .4);
+  background: rgba(44, 18, 27, .77);
+  box-shadow: 0 24px 70px rgba(20, 7, 12, .3);
+}
+
+.savings-table th {
+  background: rgba(224, 194, 135, .13);
+  color: #f0dfb9;
+}
+
+.savings-table td:last-child {
+  color: #e7cc91;
+}
+
+.savings-table tbody tr:hover {
+  background: rgba(229, 204, 155, .09);
+}
+
+.savings-table-note {
+  color: rgba(255, 246, 229, .65);
+}
+
+.scheme-benefits-heading h3,
+.scheme-terms h3 {
+  color: #fff8ed;
+}
+
+.scheme-benefit {
+  border-color: rgba(230, 207, 165, .25);
+  background: rgba(48, 17, 27, .57);
+}
+
+.scheme-benefit:hover {
+  border-color: rgba(232, 205, 153, .62);
+  background: rgba(112, 53, 65, .38);
+}
+
+.scheme-benefit-number,
+.scheme-terms li::marker {
+  color: #d8ba79;
+}
+
+.scheme-benefit p,
+.scheme-terms ol {
+  color: rgba(255, 247, 233, .82);
+}
+
+.scheme-terms {
+  border-color: rgba(230, 207, 165, .26);
+  background: rgba(38, 14, 22, .62);
+}
+
+.register-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 5% 20%, rgba(172, 105, 91, .18), transparent 33%),
+    linear-gradient(125deg, #421b29, #30131f 72%);
+  color: #fff8ed;
+}
+
+.register-section::before {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(230, 203, 153, .16) 0 1px, transparent 2px),
+    radial-gradient(circle at 19% 73%, rgba(230, 203, 153, .12) 0 1px, transparent 2px),
+    linear-gradient(90deg, transparent, rgba(223, 193, 140, .42), transparent);
+  background-size: auto, auto, 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.register-intro h2 {
+  color: #fff8ed;
+}
+
+.register-intro h2 em {
+  color: #e8cb8e;
+}
+
+.register-intro > p:not(.eyebrow) {
+  color: rgba(255, 246, 230, .77);
+}
+
+.register-intro .eyebrow,
+.trust-point {
+  color: #e8d09d;
+}
+
+.register-contact {
+  border-top-color: rgba(235, 215, 180, .24);
+}
+
+.register-contact span {
+  color: rgba(255, 246, 230, .68);
+}
+
+.register-contact a {
+  color: #f0d9a4;
+}
+
+.registration-card {
+  padding: clamp(26px, 4vw, 42px);
+  border: 1px solid rgba(188, 151, 91, .56);
+  border-radius: 3px;
+  background: linear-gradient(145deg, #fffdf7, #f8f0e2);
+  box-shadow: 0 30px 90px rgba(15, 5, 9, .35);
+}
+
+.form-icon {
+  background: #f1e5cc;
+  color: #76502c;
+}
+
+.form-heading h3 {
+  color: #4b2630;
+  font-size: 31px;
+}
+
+.registration-card > label {
+  color: #503438;
+  letter-spacing: .015em;
+}
+
+.registration-card > input {
+  border-color: #e3d7c3;
+  background: rgba(255, 255, 255, .68);
+}
+
+.registration-card > input:focus {
+  border-color: #9a7040;
+  box-shadow: 0 0 0 3px rgba(188, 151, 91, .16);
+}
+
+.submit-button {
+  min-height: 54px;
+  background: linear-gradient(120deg, #6b293c, #451a2b);
+  color: #f8e9c6;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: linear-gradient(120deg, #80394b, #592236);
+  box-shadow: 0 9px 24px rgba(78, 27, 43, .2);
+}
+
+.form-status {
+  border-left-color: #a47d48;
+  background: #f3e7d2;
+  color: #54343a;
+}
+
+.footer {
+  border-top: 1px solid rgba(228, 196, 131, .28);
+  background: #251019;
+  color: #f8edd7;
+}
+
+.footer-kicker {
+  color: #d4b671 !important;
+}
+
+.footer h2 {
+  color: #fff5e6;
+}
+
+.footer p {
+  color: rgba(248, 237, 215, .73);
+}
+
+.footer small {
+  color: rgba(248, 237, 215, .5);
+}
+
+.featured-card,
+.prize-card,
+.offer-highlight,
+.registration-card {
+  animation: atelierRise .8s both;
+}
+
+.featured-card:nth-child(2),
+.prize-card:nth-child(2) {
+  animation-delay: .1s;
+}
+
+.featured-card:nth-child(3),
+.prize-card:nth-child(3) {
+  animation-delay: .18s;
+}
+
+.prize-card:nth-child(4) {
+  animation-delay: .24s;
+}
+
+.prize-card:nth-child(5) {
+  animation-delay: .3s;
+}
+
+.nav-links > a,
+.footer a,
+.trust-point,
+.scheme-benefit,
+.prize-card,
+.featured-image-link img {
+  transition-duration: .35s;
+}
+
+@keyframes atelierRise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 760px;
+  }
+
+  .hero::before {
+    background-image:
+      linear-gradient(90deg, rgba(35, 12, 19, .91), rgba(48, 18, 28, .55) 70%, rgba(35, 12, 19, .35)),
+      linear-gradient(0deg, rgba(30, 10, 17, .76), transparent 65%),
+      url("https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1400&q=85");
+    background-position: center, center, 58% center;
+  }
+
+  .hero-content {
+    margin-top: clamp(76px, 13vh, 118px);
+  }
+
+  .hero h1 {
+    max-width: 540px;
+    font-size: clamp(58px, 13vw, 88px);
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .primary-button {
+    padding: 15px 17px;
+    font-size: 11px;
+  }
+
+  .collections-heading h2,
+  .editorial-copy h2,
+  .section-heading h2,
+  .register-intro h2 {
+    font-size: clamp(40px, 11vw, 58px);
+  }
+
+  .prize-section {
+    background-image:
+      linear-gradient(180deg, rgba(250, 246, 238, .86), rgba(250, 244, 234, .91)),
+      url("/images/prizes/3.png");
+    background-position: center, 56% center;
+  }
+
+  .savings-scheme-backdrop {
+    background-image:
+      linear-gradient(90deg, rgba(48, 20, 29, .89), rgba(56, 24, 34, .75)),
+      url("/images/prizes/4.png");
+    background-position: center, 58% center;
+    filter: none;
+  }
+
+  .prize-grid {
+    gap: 12px;
+  }
+
+  .prize-card {
+    padding: 10px 10px 18px;
+  }
+
+  .prize-image-wrapper {
+    height: clamp(142px, 38vw, 190px);
+  }
+
+  .prize-card h3 {
+    font-size: 20px;
+  }
+
+  .registration-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    min-height: 720px;
+  }
+
+  .navbar {
+    gap: 10px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links > a {
+    font-size: 8px;
+    letter-spacing: .06em;
+  }
+
+  .nav-links .nav-button {
+    padding: 10px 9px;
+  }
+
+  .hero h1 {
+    font-size: clamp(54px, 14vw, 68px);
+  }
+
+  .hero-actions {
+    gap: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-card,
+  .prize-card,
+  .offer-highlight,
+  .registration-card {
+    animation: none;
+  }
+}
+
+/* Monochrome jewellery house palette, with the heirloom gold kept in the photography. */
+:root {
+  --ink: #171717;
+  --muted: #6f6f6f;
+  --gold: #a9a9a9;
+  --gold-light: #f3f3f1;
+  --wine: #191919;
+  --cream: #f5f5f3;
+  color: #171717;
+  background: #f5f5f3;
+}
+
+body,
+.site-shell {
+  background: #f5f5f3;
+  color: #171717;
+}
+
+.hero {
+  min-height: min(850px, 100svh);
+  background: #101010;
+}
+
+.hero::before {
+  background-image:
+    linear-gradient(90deg, #101010 0%, rgba(16, 16, 16, .97) 27%, rgba(16, 16, 16, .78) 47%, rgba(16, 16, 16, .08) 78%, rgba(16, 16, 16, .08) 100%),
+    linear-gradient(0deg, rgba(10, 10, 10, .7), transparent 50%);
+}
+
+.hero::after {
+  z-index: 1;
+  opacity: 1;
+  background: linear-gradient(90deg, transparent 44%, rgba(16, 16, 16, .1) 70%, rgba(16, 16, 16, .26) 100%);
+}
+
+.hero-portrait {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(64%, 980px);
+  background-image: url("/images/prizes/1.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: auto 112%;
+  transform: scaleX(-1);
+  transform-origin: center;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 19%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 19%, #000 100%);
+}
+
+.navbar,
+.hero-content,
+.hero-caption {
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+}
+
+.navbar {
+  border-color: rgba(255, 255, 255, .19);
+}
+
+.logo img {
+  filter: grayscale(1) brightness(1.8);
+}
+
+.nav-links > a {
+  color: rgba(255, 255, 255, .82);
+}
+
+.nav-links > a:hover,
+.footer a:hover {
+  color: #fff;
+}
+
+.nav-links .nav-button {
+  border-color: rgba(255, 255, 255, .58);
+  color: #fff;
+}
+
+.nav-links .nav-button:hover {
+  background: #fff;
+  color: #171717;
+}
+
+.hero-content > .eyebrow,
+.campaign-badge,
+.hero-caption {
+  color: rgba(255, 255, 255, .78);
+}
+
+.hero h1 em {
+  color: #d2d2cf;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #fff, #d7d7d4);
+  color: #161616;
+}
+
+.primary-button:hover {
+  background: #fff;
+}
+
+.campaign-badge {
+  border-color: rgba(255, 255, 255, .3);
+  background: rgba(10, 10, 10, .42);
+}
+
+.collections-section {
+  background: #f7f7f5;
+}
+
+.eyebrow.dark,
+.card-category {
+  color: #747474;
+}
+
+.collections-heading h2,
+.editorial-copy h2,
+.section-heading h2,
+.register-intro h2 {
+  color: #202020;
+}
+
+.collections-heading h2 em,
+.editorial-copy h2 em,
+.section-heading h2 em,
+.register-intro h2 em {
+  color: #777;
+}
+
+.featured-image-link {
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .12);
+}
+
+.featured-title-row h3 {
+  color: #252525;
+}
+
+.heart-icon {
+  color: #777;
+}
+
+.featured-card:hover .heart-icon {
+  color: #333;
+}
+
+.prize-section {
+  background-image:
+    linear-gradient(180deg, rgba(246, 246, 244, .9), rgba(241, 241, 239, .9)),
+    url("/images/prizes/1.png");
+}
+
+.section-heading .eyebrow,
+.offer-date-item span {
+  color: #686868;
+}
+
+.section-heading h2 em {
+  color: #777;
+}
+
+.offer-highlight {
+  border-color: #777;
+  background:
+    radial-gradient(ellipse at 100% 0, rgba(255, 255, 255, .12), transparent 44%),
+    linear-gradient(130deg, #333, #161616 72%, #101010);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .18);
+}
+
+.offer-highlight p {
+  color: rgba(255, 255, 255, .8);
+}
+
+.offer-highlight h3 {
+  color: #f1f1ef;
+}
+
+.offer-date-item {
+  border-color: #dededb;
+  background: rgba(255, 255, 255, .93);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .05);
+}
+
+.offer-date-item strong {
+  color: #353535;
+}
+
+.prize-card {
+  border-color: rgba(0, 0, 0, .12);
+  background: rgba(255, 255, 255, .91);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, .07);
+}
+
+.prize-card:hover {
+  border-color: rgba(0, 0, 0, .36);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .13);
+}
+
+.prize-image-wrapper {
+  background: linear-gradient(145deg, #f4f4f2, #e8e8e6);
+}
+
+.prize-number {
+  color: #696969;
+}
+
+.prize-card h3 {
+  color: #292929;
+}
+
+.terms {
+  color: #707070;
+}
+
+.savings-scheme-section {
+  background: #171717;
+}
+
+.savings-scheme-backdrop {
+  background-image:
+    linear-gradient(90deg, rgba(18, 18, 18, .95) 0%, rgba(24, 24, 24, .87) 48%, rgba(20, 20, 20, .76) 100%),
+    url("/images/prizes/scheme.jpeg");
+  filter: grayscale(1);
+}
+
+.savings-scheme-section::after {
+  background:
+    radial-gradient(ellipse at 88% 12%, rgba(255, 255, 255, .12), transparent 34%),
+    linear-gradient(0deg, rgba(0, 0, 0, .3), transparent 45%);
+}
+
+.savings-scheme-copy .eyebrow,
+.scheme-benefits .eyebrow {
+  color: #c8c8c6;
+}
+
+.savings-scheme-copy h2 em {
+  color: #d0d0ce;
+}
+
+.savings-scheme-lead,
+.scheme-benefit p,
+.scheme-terms ol {
+  color: rgba(255, 255, 255, .8);
+}
+
+.savings-table-wrap {
+  border-color: rgba(255, 255, 255, .24);
+  background: rgba(15, 15, 15, .78);
+}
+
+.savings-table th {
+  background: rgba(255, 255, 255, .09);
+  color: #e7e7e5;
+}
+
+.savings-table td:last-child {
+  color: #fff;
+}
+
+.savings-table-note {
+  color: #aaa;
+}
+
+.scheme-benefits-heading h3,
+.scheme-terms h3 {
+  color: #fff;
+}
+
+.scheme-benefit {
+  border-color: rgba(255, 255, 255, .2);
+  background: rgba(10, 10, 10, .58);
+}
+
+.scheme-benefit:hover {
+  border-color: rgba(255, 255, 255, .55);
+  background: rgba(255, 255, 255, .08);
+}
+
+.scheme-benefit-number,
+.scheme-terms li::marker {
+  color: #c8c8c6;
+}
+
+.scheme-terms {
+  border-color: rgba(255, 255, 255, .2);
+  background: rgba(0, 0, 0, .55);
+}
+
+.register-section {
+  background:
+    radial-gradient(ellipse at 5% 20%, rgba(255, 255, 255, .09), transparent 33%),
+    linear-gradient(125deg, #242424, #111 72%);
+  color: #fff;
+}
+
+.register-section::before {
+  background:
+    radial-gradient(circle at 12% 22%, rgba(255, 255, 255, .16) 0 1px, transparent 2px),
+    radial-gradient(circle at 19% 73%, rgba(255, 255, 255, .12) 0 1px, transparent 2px),
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, .42), transparent);
+}
+
+.register-intro h2,
+.register-intro h2 em {
+  color: #fff;
+}
+
+.register-intro > p:not(.eyebrow) {
+  color: #c9c9c9;
+}
+
+.register-intro .eyebrow,
+.trust-point {
+  color: #dededc;
+}
+
+.register-contact {
+  border-top-color: #444;
+}
+
+.register-contact span {
+  color: #aaa;
+}
+
+.register-contact a {
+  color: #fff;
+}
+
+.registration-card {
+  border-color: #d0d0ce;
+  background: linear-gradient(145deg, #fff, #f2f2f0);
+  color: #171717;
+}
+
+.form-icon {
+  background: #ededeb;
+  color: #333;
+}
+
+.form-heading h3,
+.registration-card > label {
+  color: #202020;
+}
+
+.form-heading p,
+.privacy-note {
+  color: #777;
+}
+
+.registration-card > input {
+  border-color: #d4d4d1;
+  background: #fafaf9;
+  color: #171717;
+}
+
+.registration-card > input:focus {
+  border-color: #5d5d5d;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, .08);
+}
+
+.submit-button {
+  background: linear-gradient(120deg, #303030, #111);
+  color: #fff;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: linear-gradient(120deg, #484848, #202020);
+  box-shadow: 0 9px 24px rgba(0, 0, 0, .2);
+}
+
+.form-status {
+  border-left-color: #444;
+  background: #e9e9e7;
+  color: #222;
+}
+
+.footer {
+  border-top-color: #363636;
+  background: #0e0e0e;
+  color: #f6f6f4;
+}
+
+.footer-kicker {
+  color: #c8c8c6 !important;
+}
+
+.footer h2 {
+  color: #fff;
+}
+
+.footer p {
+  color: #c8c8c8;
+}
+
+.footer small {
+  color: #858585;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 760px;
+  }
+
+  .hero::before {
+    background-image:
+      linear-gradient(90deg, rgba(14, 14, 14, .97) 0%, rgba(14, 14, 14, .88) 52%, rgba(14, 14, 14, .42) 100%),
+      linear-gradient(0deg, rgba(10, 10, 10, .84), transparent 75%);
+  }
+
+  .hero::after {
+    background: linear-gradient(90deg, rgba(12, 12, 12, .2), transparent 70%);
+  }
+
+  .hero-portrait {
+    top: 8%;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-position: left center;
+    background-size: auto 52%;
+    opacity: .58;
+    transform: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .55) 24%, #000 68%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .55) 24%, #000 68%, transparent 100%);
+  }
+
+  .hero-content {
+    z-index: 2;
+  }
+
+  .hero h1 {
+    max-width: 470px;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, .35);
+  }
+
+  .campaign-badge {
+    backdrop-filter: blur(8px);
+  }
+
+  .prize-section {
+    background-image:
+      linear-gradient(180deg, rgba(246, 246, 244, .88), rgba(241, 241, 239, .92)),
+      url("/images/prizes/3.png");
+  }
+
+  .savings-scheme-backdrop {
+    background-image:
+      linear-gradient(90deg, rgba(18, 18, 18, .9), rgba(24, 24, 24, .76)),
+      url("/images/prizes/4.png");
+    filter: none;
+  }
+}
+
+html {
+  scroll-padding-top: 104px;
+}
+
+.navbar {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 10px clamp(20px, 7%, 100px);
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(12, 12, 12, .9);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.navbar .logo img {
+  width: 68px;
+  height: 60px;
+}
+
+.hero {
+  padding-top: 80px;
+}
+
+.prize-section {
+  background-color: #242424;
+  background-image: linear-gradient(135deg, #303030 0%, #1b1b1b 52%, #383838 100%);
+  color: #f5f5f3;
+}
+
+.prize-section::before {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, .08), transparent 60%),
+    linear-gradient(110deg, rgba(0, 0, 0, .12), transparent 55%, rgba(0, 0, 0, .2));
+}
+
+.prize-section .section-heading h2 {
+  color: #f4f4f2;
+}
+
+.prize-section .section-heading h2 em,
+.prize-section .section-heading .eyebrow,
+.prize-section .offer-date-item span {
+  color: #c9c9c7;
+}
+
+.prize-section .offer-highlight {
+  border-color: rgba(255, 255, 255, .55);
+  background: linear-gradient(130deg, rgba(48, 48, 48, .96), rgba(17, 17, 17, .96));
+}
+
+.prize-section .offer-date-item {
+  border-color: rgba(255, 255, 255, .23);
+  background: rgba(30, 30, 30, .88);
+  color: #f2f2f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .16);
+  backdrop-filter: blur(9px);
+}
+
+.prize-section .offer-date-item strong,
+.prize-section .prize-card h3 {
+  color: #f2f2f0;
+}
+
+.prize-section .prize-card {
+  border-color: rgba(255, 255, 255, .17);
+  background: rgba(29, 29, 29, .91);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, .22);
+  backdrop-filter: blur(9px);
+}
+
+.prize-section .prize-card:hover {
+  border-color: rgba(255, 255, 255, .42);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, .3);
+}
+
+.prize-section .prize-image-wrapper {
+  background: linear-gradient(145deg, #e9e9e7, #cfcfcd);
+}
+
+.prize-section .prize-number {
+  color: #c7c7c5;
+}
+
+.prize-section .terms {
+  color: rgba(255, 255, 255, .72);
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 84px;
+  }
+
+  .navbar {
+    padding: 8px 20px;
+  }
+
+  .navbar .logo img {
+    width: 58px;
+    height: 52px;
+  }
+
+  .hero {
+    padding-top: 68px;
+  }
+
+  .prize-section {
+    background-image: linear-gradient(155deg, #303030 0%, #1b1b1b 55%, #373737 100%);
+  }
+}

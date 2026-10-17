@@ -236,26 +236,27 @@ export default function App() {
 
   return (
     <div className="site-shell">
+      <nav className="navbar">
+        <a className="logo" href="#home" aria-label="Kiara Kothari Jewellers Home">
+          <img src="/images/prizes/logo.png" alt="Kiara Kothari Jewellers" />
+        </a>
+
+        <div className="nav-links">
+          <a href="#home">Home</a>
+          <a href="#collections">Collections</a>
+          <a href="#prizes">Lucky Draw</a>
+          <a href="#contact">Contact</a>
+          <a href="#register" className="nav-button">
+            Register <ArrowRight size={16} />
+          </a>
+        </div>
+        <a className="mobile-register" href="#register" aria-label="Register for lucky draw">
+          <ShoppingBag size={18} />
+        </a>
+      </nav>
+
       <header className="hero" id="home">
-        <nav className="navbar">
-          <a className="logo" href="#home" aria-label="Kiara Kothari Jewellers Home">
-            <img src="/images/prizes/logo.png" alt="Kiara Kothari Jewellers" />
-          </a>
-
-          <div className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#collections">Collections</a>
-            <a href="#prizes">Lucky Draw</a>
-            <a href="#contact">Contact</a>
-            <a href="#register" className="nav-button">
-              Register <ArrowRight size={16} />
-            </a>
-          </div>
-          <a className="mobile-register" href="#register" aria-label="Register for lucky draw">
-            <ShoppingBag size={18} />
-          </a>
-        </nav>
-
+        <div className="hero-portrait" aria-hidden="true" />
         <div className="hero-content">
           <p className="eyebrow">
             <Sparkles size={15} /> THE ART OF FINE JEWELLERY
@@ -269,11 +270,11 @@ export default function App() {
             purchase.
           </p>
           <div className="hero-actions">
-            <a className="primary-button" href="#collections">
-              Explore collection <ArrowRight size={17} />
+            <a className="primary-button" href="#register">
+              Enter the Lucky Draw <ArrowRight size={17} />
             </a>
-            <a className="text-button" href="#prizes">
-              Discover the offer <ChevronRight size={17} />
+            <a className="text-button" href="#collections">
+              Explore the collection <ChevronRight size={17} />
             </a>
           </div>
           <div className="campaign-badge">
