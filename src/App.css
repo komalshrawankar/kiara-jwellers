@@ -1838,26 +1838,23 @@ body,
   }
 
   .hero::before {
-    background-image:
-      linear-gradient(90deg, rgba(14, 14, 14, .97) 0%, rgba(14, 14, 14, .88) 52%, rgba(14, 14, 14, .42) 100%),
-      linear-gradient(0deg, rgba(10, 10, 10, .84), transparent 75%);
+    background-image: none;
   }
 
   .hero::after {
-    background: linear-gradient(90deg, rgba(12, 12, 12, .2), transparent 70%);
+    display: none;
   }
 
   .hero-portrait {
-    top: 8%;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     width: 100%;
-    background-position: left center;
-    background-size: auto 52%;
-    opacity: .58;
+    background-image: url("/images/prizes/3.png");
+    background-position: center;
+    background-size: cover;
+    opacity: 1;
     transform: none;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .55) 24%, #000 68%, transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .55) 24%, #000 68%, transparent 100%);
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .hero-content {
@@ -2185,31 +2182,28 @@ html {
 }
 
 .savings-scheme-section {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   padding: 0;
   background-color: #181613;
-  background-image: url("/images/prizes/42.png");
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: 50% 100%;
+  background-image: none;
 }
 
 .savings-scheme-section::after {
   content: none;
 }
 
-.savings-scheme-inner {
-  grid-column: 2;
-  width: min(720px, 100%);
-  margin: 0 auto;
-  padding: clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px);
+.savings-scheme-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.savings-scheme-copy {
-  margin-bottom: 24px;
+.savings-scheme-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px);
 }
 
 .savings-table-wrap {
@@ -2232,20 +2226,7 @@ html {
 }
 
 @media (max-width: 1000px) {
-  .savings-scheme-section {
-    grid-template-columns: 1fr;
-    background-position: top center;
-    background-size: 100% auto;
-  }
-
-  .savings-scheme-section::before {
-    content: "";
-    display: block;
-    height: 56.4vw;
-  }
-
   .savings-scheme-inner {
-    grid-column: 1;
     width: 100%;
     padding: 32px clamp(18px, 5vw, 48px) 48px;
   }
@@ -2263,6 +2244,19 @@ html {
 }
 
 @media (max-width: 600px) {
+  .savings-scheme-section {
+    width: 100%;
+    padding: 0;
+    gap: 0;
+  }
+
+  .savings-scheme-image {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    filter: brightness(1.2);
+  }
+
   .savings-table-wrap {
     overflow-x: visible;
   }
@@ -2283,4 +2277,27 @@ html {
   .savings-table th {
     font-size: 9px;
   }
+}
+
+.whatsapp-float {
+  position: fixed;
+  z-index: 30;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .28);
+  text-decoration: none;
+}
+
+.whatsapp-float-phone {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  fill: #25d366;
 }

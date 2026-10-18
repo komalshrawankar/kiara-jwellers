@@ -5,6 +5,7 @@ import {
   MapPin,
   Phone,
   Mail,
+  MessageCircle,
   Sparkles,
   CheckCircle2,
   ShoppingBag,
@@ -333,20 +334,14 @@ export default function App() {
           </p>
         </section>
 
-        <section className="savings-scheme-section" id="savings-scheme" aria-labelledby="savings-scheme-title">
+        <section className="savings-scheme-section" id="savings-scheme" aria-label="मासिक बचत योजना">
+          <img
+            className="savings-scheme-image"
+            src="/images/prizes/final.png"
+            alt="कियारा कोठारी ज्वेलर्स की मासिक बचत योजना"
+            loading="lazy"
+          />
           <div className="savings-scheme-inner">
-            <div className="savings-scheme-copy">
-              <p className="eyebrow">KIARA KOTHARI JEWELLERS · MONTHLY SAVINGS PLAN</p>
-              <h2 id="savings-scheme-title">
-                हर महीने बचत करें,<br />
-                <em>अतिरिक्त लाभ पाएं!</em>
-              </h2>
-              <p className="savings-scheme-lead">
-                कियारा कोठारी ज्वेलर्स की मासिक बचत योजना के साथ अपनी ज्वेलरी खरीदारी की योजना बनाएं।
-                नियमित बचत करें और अपनी पसंद की ज्वेलरी के लिए बेहतर तरीके से तैयार रहें।
-              </p>
-            </div>
-
             <div className="savings-table-wrap">
               <table className="savings-table">
                 <thead>
@@ -510,6 +505,16 @@ export default function App() {
         <p><Mail size={17} /><a href="mailto:kiarakotharijewellers@gmail.com">kiarakotharijewellers@gmail.com</a></p>
         <small>© {new Date().getFullYear()} Kiara Kothari Jewellers. All rights reserved.</small>
       </footer>
+      <a
+        className="whatsapp-float"
+        href="https://wa.me/917066086060"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with Kiara Kothari Jewellers on WhatsApp"
+      >
+        <MessageCircle size={30} aria-hidden="true" />
+        <Phone className="whatsapp-float-phone" size={14} aria-hidden="true" />
+      </a>
     </div>
   );
 }
