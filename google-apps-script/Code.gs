@@ -2,11 +2,12 @@ const REGISTRATION_HEADERS = [
   "Timestamp",
   "Name",
   "Mobile Number",
+  "Token No",
   "City",
   "Email Status",
 ];
 
-const REGISTRATION_SERVICE_VERSION = "registration-v1";
+const REGISTRATION_SERVICE_VERSION = "registration-v2";
 
 const REGISTRATION_FIELDS = [
   { key: "timestamp", header: "Timestamp", aliases: ["timestamp"] },
@@ -16,6 +17,7 @@ const REGISTRATION_FIELDS = [
     header: "Mobile Number",
     aliases: ["mobilenumber", "mobileno", "phonenumber", "phone", "contactnumber", "contactno"],
   },
+  { key: "token", header: "Token No", aliases: ["tokenno", "tokennumber", "token"] },
   { key: "city", header: "City", aliases: ["city", "location"] },
   { key: "emailStatus", header: "Email Status", aliases: ["emailstatus"] },
 ];
@@ -77,9 +79,18 @@ function doPost(e) {
 
     const name = String(params.name || "").trim();
     const phone = normalizePhone(params.phone);
+    const token = String(params.token || "").trim();
     const city = String(params.city || "").trim();
-    if (!name || name.length > 100 || !isValidPhone(phone) || !city || city.length > 100) {
-      throw new Error("Please provide a valid name, mobile number, and city.");
+    if (
+      !name ||
+      name.length > 100 ||
+      !isValidPhone(phone) ||
+      !token ||
+      token.length > 50 ||
+      !city ||
+      city.length > 100
+    ) {
+      throw new Error("Please provide a valid name, mobile number, token number, and city.");
     }
 
     const properties = PropertiesService.getScriptProperties();
@@ -114,6 +125,7 @@ function doPost(e) {
       values[columns.timestamp - 1] = new Date();
       values[columns.name - 1] = name;
       values[columns.phone - 1] = phone;
+      values[columns.token - 1] = token;
       values[columns.city - 1] = city;
       values[columns.emailStatus - 1] = "Pending";
       sheet.getRange(row, 1, 1, values.length).setValues([values]);
@@ -130,6 +142,7 @@ function doPost(e) {
           "",
           `Name: ${name}`,
           `Mobile number: ${phone}`,
+          `Token number: ${token}`,
           `City: ${city}`,
         ].join("\n"),
       });
@@ -215,6 +228,7 @@ function retryFailedEmails() {
     const sheetRow = index + 2;
     const name = String(row[columns.name - 1] || "");
     const phone = normalizePhone(row[columns.phone - 1]);
+    const token = String(row[columns.token - 1] || "");
     const city = String(row[columns.city - 1] || "");
     try {
       MailApp.sendEmail({
@@ -225,6 +239,7 @@ function retryFailedEmails() {
           "",
           `Name: ${name}`,
           `Mobile number: ${phone}`,
+          `Token number: ${token}`,
           `City: ${city}`,
         ].join("\n"),
       });
@@ -275,6 +290,7 @@ function ensureHeaders(sheet) {
   }
   const columns = getRegistrationColumns(sheet);
   sheet.getRange(1, columns.phone, sheet.getMaxRows(), 1).setNumberFormat("@");
+  sheet.getRange(1, columns.token, sheet.getMaxRows(), 1).setNumberFormat("@");
 }
 
 function findRegistrationRow(sheet, phone) {

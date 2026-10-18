@@ -136,7 +136,7 @@ async function waitForRegistration(requestId) {
 }
 
 export default function App() {
-  const [form, setForm] = useState({ name: "", phone: "", city: "" });
+  const [form, setForm] = useState({ name: "", phone: "", token: "", city: "" });
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -155,6 +155,7 @@ export default function App() {
 
     const name = form.name.trim();
     const phone = form.phone.replace(/\D/g, "");
+    const token = form.token.trim();
     const city = form.city.trim();
 
     if (!name) {
@@ -167,6 +168,10 @@ export default function App() {
     }
     if (!city) {
       setStatus("कृपया अपना शहर या क्षेत्र दर्ज करें।");
+      return;
+    }
+    if (!token || token.length > 50) {
+      setStatus("कृपया 1 से 50 अक्षरों के बीच टोकन नंबर दर्ज करें।");
       return;
     }
 
@@ -184,6 +189,7 @@ export default function App() {
         requestId,
         name,
         phone,
+        token,
         city,
       });
       await fetch(APPS_SCRIPT_URL, {
@@ -199,7 +205,7 @@ export default function App() {
       }
 
       setStatus("आपका रजिस्ट्रेशन सफलतापूर्वक हो गया है। धन्यवाद!");
-      setForm({ name: "", phone: "", city: "" });
+      setForm({ name: "", phone: "", token: "", city: "" });
     } catch (error) {
       console.error("Registration error:", error);
 
@@ -328,7 +334,6 @@ export default function App() {
         </section>
 
         <section className="savings-scheme-section" id="savings-scheme" aria-labelledby="savings-scheme-title">
-          <div className="savings-scheme-backdrop" aria-hidden="true" />
           <div className="savings-scheme-inner">
             <div className="savings-scheme-copy">
               <p className="eyebrow">KIARA KOTHARI JEWELLERS · MONTHLY SAVINGS PLAN</p>
@@ -407,15 +412,11 @@ export default function App() {
               Register for your <em>chance to win.</em>
             </h2>
             <p>
-              लकी ड्रॉ में रजिस्ट्रेशन के लिए नीचे दी गई तीनों जानकारी भरें।
+              लकी ड्रॉ में रजिस्ट्रेशन के लिए नीचे दी गई सभी जानकारी भरें।
               एक मोबाइल नंबर से केवल एक ही एंट्री स्वीकार की जाएगी।
             </p>
             <div className="trust-point"><CheckCircle2 size={18} /> एक मोबाइल नंबर से एक एंट्री</div>
             <div className="trust-point"><CheckCircle2 size={18} /> आसान रजिस्ट्रेशन</div>
-            <div className="register-contact">
-              <span><Phone size={16} /> Need help? Call us</span>
-              <a href="https://wa.me/919270132228">9270132228</a>
-            </div>
           </div>
 
           <form className="registration-card" onSubmit={handleSubmit}>
@@ -423,7 +424,7 @@ export default function App() {
               <span className="form-icon"><Gift size={23} /></span>
               <div>
                 <h3>Lucky Draw Registration</h3>
-                <p>तीनों जानकारी भरना अनिवार्य है।</p>
+                <p>सभी जानकारी भरना अनिवार्य है।</p>
               </div>
             </div>
 
@@ -452,6 +453,19 @@ export default function App() {
               pattern="[6-9][0-9]{9}"
               maxLength={10}
               autoComplete="tel"
+              required
+            />
+
+            <label htmlFor="token">टोकन नंबर *</label>
+            <input
+              id="token"
+              name="token"
+              type="text"
+              value={form.token}
+              onChange={handleChange}
+              placeholder="अपना टोकन नंबर दर्ज करें"
+              maxLength={50}
+              autoComplete="off"
               required
             />
 

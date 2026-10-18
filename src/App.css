@@ -2183,3 +2183,104 @@ html {
     min-width: min(100%, 280px);
   }
 }
+
+.savings-scheme-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  background-color: #181613;
+  background-image: url("/images/prizes/42.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+}
+
+.savings-scheme-section::after {
+  content: none;
+}
+
+.savings-scheme-inner {
+  grid-column: 2;
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px);
+}
+
+.savings-scheme-copy {
+  margin-bottom: 24px;
+}
+
+.savings-table-wrap {
+  background: #211318;
+  backdrop-filter: none;
+}
+
+.scheme-details-layout {
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+}
+
+.scheme-details-image {
+  flex: none;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  align-self: stretch;
+}
+
+@media (max-width: 1000px) {
+  .savings-scheme-section {
+    grid-template-columns: 1fr;
+    background-position: top center;
+    background-size: 100% auto;
+  }
+
+  .savings-scheme-section::before {
+    content: "";
+    display: block;
+    height: 56.4vw;
+  }
+
+  .savings-scheme-inner {
+    grid-column: 1;
+    width: 100%;
+    padding: 32px clamp(18px, 5vw, 48px) 48px;
+  }
+
+  .savings-table-wrap {
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .savings-table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .savings-table-wrap {
+    overflow-x: visible;
+  }
+
+  .savings-table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .savings-table th,
+  .savings-table td {
+    padding: 10px 4px;
+    overflow-wrap: anywhere;
+    font-size: 10px;
+  }
+
+  .savings-table th {
+    font-size: 9px;
+  }
+}

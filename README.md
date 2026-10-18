@@ -27,7 +27,8 @@ admin address.
 1. Choose the Google Sheet that contains your existing Google Form responses,
    or create a dedicated sheet. The script recognizes common name, phone,
    city, and timestamp headings, checks existing mobile numbers, and adds any
-   missing columns to the first tab.
+   missing columns to the first tab. New registrations include a required
+   `Token No` value; the script adds that column if it is missing.
 2. Open the Apps Script project that owns the deployment URL in
    [script.google.com](https://script.google.com) and replace its code with
    `google-apps-script/Code.gs`. If you do not own that project, create a new
@@ -48,7 +49,7 @@ admin address.
    authorization, select `retryFailedEmails` and click **Run** to notify the
    admin about entries already saved with `Email Status` set to `Failed`.
 6. Check the deployment by opening `<your /exec URL>?action=health`. It must
-   return JSON with `"service":"registration-v1"` and `"configured":true`.
+   return JSON with `"service":"registration-v2"` and `"configured":true`.
    Then `<your /exec URL>?action=check&phone=9000000000&callback=test` must
    return a JavaScript response beginning with `test(`.
 7. Keep the deployed URL in `APPS_SCRIPT_URL` in `src/App.jsx` and publish the
