@@ -242,34 +242,12 @@ export default function App() {
       </nav>
 
       <header className="hero" id="home">
-        <div className="hero-portrait" aria-hidden="true" />
-        <div className="hero-content">
-          <p className="eyebrow">
-            <Sparkles size={17} /> लकी ड्रॉ 2026–27
-          </p>
-          <h1>
-           ₹10,000 की सोने की ज्वेलरी खरीदने पर
-
- <em>पाएं ढेर सारे उपहार!</em>
-          </h1>
-          <p className="hero-description">
-            सोने की ज्वेलरी की खरीदारी पर शानदार उपहार जीतने का सुनहरा मौका।
-          </p>
-          <div className="hero-actions">
-            <div className="hero-date-card">
-              <span>ऑफर अवधि</span>
-              <p>1 सितंबर 2026 से 31 जनवरी 2027</p>
-            </div>
-            <div className="hero-date-card">
-              <span>लकी ड्रॉ की तारीख</span>
-              <p>7 फरवरी 2027</p>
-            </div>
-          </div>
-          <div className="campaign-badge">
-            <Gift size={17} />
-            <span>₹10,000 की सोने की ज्वेलरी खरीद पर उपहार जीतने का अवसर।</span>
-          </div>
-        </div>
+        <img
+          className="hero-portrait"
+          src="/images/prizes/banner.png"
+          alt=""
+          aria-hidden="true"
+        />
         <div className="hero-caption">
           <span>KIARA KOTHARI</span>
           <span>JEWELLERY THAT FEELS LIKE YOU</span>
