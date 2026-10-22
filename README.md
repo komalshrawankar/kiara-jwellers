@@ -48,6 +48,15 @@ admin address.
    the failed `testAdminEmail` run for Google's exact error. After fixing mail
    authorization, select `retryFailedEmails` and click **Run** to notify the
    admin about entries already saved with `Email Status` set to `Failed`.
+   The retry uses the same Google Apps Script daily email quota as new
+   registrations. If the execution log says
+   `Service invoked too many times for one day: email`, no retry can send until
+   Google's quota resets; the failed rows remain eligible, so run
+   `retryFailedEmails` again afterward. The script stops when it detects an
+   exhausted quota rather than logging a send failure for every remaining row.
+   A registration is considered submitted once it is saved to the sheet, even
+   if its admin notification email fails; the form still shows the submission
+   confirmation, and the row remains marked `Failed` for a later retry.
 6. Check the deployment by opening `<your /exec URL>?action=health`. It must
    return JSON with `"service":"registration-v2"` and `"configured":true`.
    Then `<your /exec URL>?action=check&phone=9000000000&callback=test` must

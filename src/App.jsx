@@ -205,7 +205,7 @@ export default function App() {
         return;
       }
 
-      setStatus("आपका रजिस्ट्रेशन सफलतापूर्वक हो गया है। धन्यवाद!");
+      setStatus("आपका फॉर्म सफलतापूर्वक सबमिट हो गया है। धन्यवाद!");
       setForm({ name: "", phone: "", token: "", city: "" });
     } catch (error) {
       console.error("Registration error:", error);

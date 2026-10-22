@@ -153,13 +153,10 @@ function doPost(e) {
       sheet.getRange(row, getRegistrationColumns(sheet).emailStatus).setValue("Failed");
       cache.put(
         statusKey(requestId),
-        JSON.stringify({
-          status: "error",
-          message: "Your entry was saved, but the admin email could not be sent. Please contact the store.",
-        }),
+        JSON.stringify({ status: "registered" }),
         21600
       );
-      return jsonResponse({ status: "error" });
+      return jsonResponse({ status: "registered" });
     }
 
     try {
@@ -220,9 +217,10 @@ function retryFailedEmails() {
   }
 
   const values = sheet.getRange(2, 1, lastRow - 1, sheet.getLastColumn()).getValues();
-  values.forEach((row, index) => {
+  for (let index = 0; index < values.length; index += 1) {
+    const row = values[index];
     if (String(row[columns.emailStatus - 1]).toLowerCase() !== "failed") {
-      return;
+      continue;
     }
 
     const sheetRow = index + 2;
@@ -230,6 +228,13 @@ function retryFailedEmails() {
     const phone = normalizePhone(row[columns.phone - 1]);
     const token = String(row[columns.token - 1] || "");
     const city = String(row[columns.city - 1] || "");
+    if (MailApp.getRemainingDailyQuota() < 1) {
+      console.warn(
+        "Daily email recipient quota is exhausted. Remaining failed emails were left unchanged; run retryFailedEmails again after the quota resets."
+      );
+      break;
+    }
+
     try {
       MailApp.sendEmail({
         to: adminEmail,
@@ -249,8 +254,14 @@ function retryFailedEmails() {
       console.error(
         `Retry failed for sheet row ${sheetRow}: ${error.stack || error.message}`
       );
+      if (/Service invoked too many times for one day:\s*email/i.test(error.message || "")) {
+        console.warn(
+          "Daily email quota is exhausted. Remaining failed emails were left unchanged; run retryFailedEmails again after the quota resets."
+        );
+        break;
+      }
     }
-  });
+  }
 }
 
 function getRequestStatus(requestId) {
